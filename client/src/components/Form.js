@@ -1,12 +1,12 @@
 import React from 'react'
 import {useForm} from 'react-hook-form';
-import History from './History';
+// import History from './History';
 
 export default function Form() {
 
-    const {register,handleSubmit,resetField}= useForm();
-    const onSubmit = (data)=> {
-        console.log(data)
+    const {register,handleSubmit}= useForm();
+    const onSubmit = (value)=> {
+        console.log(value)
     }
 
     return (
@@ -16,7 +16,7 @@ export default function Form() {
             <form id='form' onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid gap-4">
                     <div className="input-group">
-                        <input type="text" {...register('name')} placeholder='Salary,House Rent, SIP' className='form-input' />
+                        <input type="text" {...register('name')} placeholder='Salary,House Rent, Others' className='form-input' />
                     </div>
                     <select className='form-input' {...register('type')}>
                         <option value="Investment" defaultValue>Investment</option>
@@ -33,7 +33,7 @@ export default function Form() {
                 </div>
             </form>
 
-            <History></History>
+            {/* <History></History> */}
         </div>
     )
 }

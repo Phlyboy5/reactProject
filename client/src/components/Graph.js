@@ -7,7 +7,7 @@ Chart.register(ArcElement);
 
 const config = {
   data: { datasets: [{
-    data: [300, 50, 100],
+    data: [1000, 1500, 500],
     backgroundColor: [
       'rgb(255, 99, 132)',
       'rgb(54, 162, 235)',
@@ -24,13 +24,14 @@ options: {
 }
 
 export default function Graph() {
+  let sum= config.data.datasets[0];
   return (
     <div className="flex justify-content max-w-xs mx-auto">
         <div className="item">
             <div className="chart relative">
                 <Doughnut {...config}></Doughnut>
                 <h3 className='mb-4 font-bold title'>Total
-                <span className='block text-3xl text-emerald-400'>{0}₹</span>
+                <span className='block text-3xl text-emerald-400'>{sum.data[0]+sum.data[1]+sum.data[2]}₹</span>
                 </h3>
             </div>
 

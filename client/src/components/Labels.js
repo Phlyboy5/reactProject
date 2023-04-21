@@ -2,18 +2,18 @@ import React from 'react'
 
 const obj = [{
     type: "Savings",
-    color:'yellow',
-    percent:45
+    color:'rgb(255, 99, 132)',
+    percent:33
 },
 {
     type: "Investment",
-    color:'yellow',
-    percent:20
+    color:'rgb(54, 162, 235)',
+    percent:33
 },
 {
     type: "Expense",
-    color:'yellow',
-    percent:10
+    color:'rgb(255, 205, 86)',
+    percent:33
 }]
 
 export default function Labels() {
