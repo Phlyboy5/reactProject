@@ -5,25 +5,10 @@ import Labels from './Labels';
 
 Chart.register(ArcElement);
 
-const config = {
-  data: { datasets: [{
-    data: [1000, 1500, 500],
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4,
-    borderRadius: 30,
-    spacing: 10
-  }]
-},
-options: {
-  cutout:115
-}
-}
+export default function Graph({config , setConfig}) {
+  // console.log(props.config)
 
-export default function Graph() {
+
   let sum= config.data.datasets[0];
   return (
     <div className="flex justify-content max-w-xs mx-auto">
@@ -37,7 +22,7 @@ export default function Graph() {
 
             <div className="flex flex-col py-10 gap-4">
                 {/* Lables */}
-                <Labels></Labels>
+                <Labels config = {config} />
             </div>
         </div>
     </div>

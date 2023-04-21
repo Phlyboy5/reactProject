@@ -1,12 +1,15 @@
 import React from 'react'
 import {useForm} from 'react-hook-form';
-// import History from './History';
 
-export default function Form() {
+export default function Form(props) {
+
 
     const {register,handleSubmit}= useForm();
+    const {setUserDetail} = props;
+
     const onSubmit = (value)=> {
-        console.log(value)
+
+        setUserDetail(value);
     }
 
     return (
@@ -32,8 +35,6 @@ export default function Form() {
 
                 </div>
             </form>
-
-            {/* <History></History> */}
         </div>
     )
 }

@@ -1,22 +1,39 @@
 import React from 'react'
+export default function Labels({config}) {
 
-const obj = [{
-    type: "Savings",
-    color:'rgb(255, 99, 132)',
-    percent:33
-},
-{
-    type: "Investment",
-    color:'rgb(54, 162, 235)',
-    percent:33
-},
-{
-    type: "Expense",
-    color:'rgb(255, 205, 86)',
-    percent:33
-}]
+    
+    const item = config.data.datasets[0].data;
+    
+    const sav = parseInt(item[0]); 
+    const inv = parseInt(item[1]); 
+    const ep = parseInt(item[2]); 
+    const total = sav+inv+ep;
 
-export default function Labels() {
+    const percentage = (val) =>{
+        if(!val){
+            return 0;
+        }
+
+        var data = ((val/total)*100).toFixed(2);
+        return data;
+    }
+
+    const obj = [{
+        type: "Savings",
+        color:'rgb(255, 99, 132)',
+        percent: percentage(sav)
+    },
+    {
+        type: "Investment",
+        color:'rgb(54, 162, 235)',
+        percent:percentage(inv)
+    },
+    {
+        type: "Expense",
+        color:'rgb(255, 205, 86)',
+        percent:percentage(ep)
+    }]
+
   return (
     <>
     {obj.map((v,i)=><LabelComponent key={i} data={v}></LabelComponent>)}
